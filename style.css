@@ -1,8 +1,16 @@
+.pixel {
+  border: 1px solid black;
+  width: 48px;
+  height: 48px; 
+  font-size: 0px;
+}
+
 .color {
   border: 1px solid black;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   display: inline-block;
+  margin-left: 0px;
 }
 
 .preto {
@@ -18,5 +26,15 @@
 }
 
 .laranja {
- background-color: orange;
+  background-color: orange;
 }
+
+#pixel-board {
+  padding-bottom: 0px;
+  font-size: 0px;
+}
+
+.pixel-coluna {
+    display: inline-block;
+}
+
