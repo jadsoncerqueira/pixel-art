@@ -3,7 +3,13 @@ window.onload = function (){
   corPreta.className = 'color preto selected'
 }
 
+
 geradorQuadroPixel(5,5,40)
+let elementoSelecionado = document.getElementsByClassName('color')
+for(let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
+    elementoSelecionado[i3].addEventListener('click', selecao)
+}
+
 
 function geradorQuadroPixel (linhas, colunas, tamanho) {
   for (let i = 0; i < colunas; i += 1) {
@@ -24,3 +30,14 @@ function geradorQuadroPixel (linhas, colunas, tamanho) {
     divPai.appendChild(colums)
   }
 }
+
+function selecao(pix) {
+    let pixelColor = document.getElementsByClassName('color');
+    for (let i = 0; i < pixelColor.length; i += 1) {
+        if (pixelColor[i].className.includes('selected') == true) {
+            pixelColor[i].className = pixelColor[i].className.replace(' selected', '')
+            pix.target.className = pix.target.className + ' selected' 
+        }  
+    }
+}
+

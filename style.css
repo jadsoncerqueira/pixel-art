@@ -1,6 +1,3 @@
-.selected {
-  
-}
 .pixel {
   border: 1px solid black;
   width: 38px;
@@ -41,5 +38,9 @@
 .pixel-coluna {
   display: inline-block;
 }
+
+.selected {
+    border: 2px solid rgb(255, 72, 0);
+  }
 
 
