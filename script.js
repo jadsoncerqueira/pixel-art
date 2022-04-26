@@ -1,3 +1,8 @@
+window.onload = function (){
+  let corPreta = document.querySelector('.color')
+  corPreta.className = 'color preto selected'
+}
+
 geradorQuadroPixel(5,5,40)
 
 function geradorQuadroPixel (linhas, colunas, tamanho) {

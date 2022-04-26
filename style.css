@@ -1,4 +1,6 @@
-
+.selected {
+  
+}
 .pixel {
   border: 1px solid black;
   width: 38px;
