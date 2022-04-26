@@ -5,7 +5,7 @@ window.onload = function (){
 }
 
 
-geradorQuadroPixel(8,8,30)
+geradorQuadroPixel(5,5,40)
 let elementoSelecionado = document.getElementsByClassName('color')
 for(let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
   elementoSelecionado[i3].addEventListener('click', selecao);
