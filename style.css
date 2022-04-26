@@ -13,22 +13,6 @@
   margin-left: 0px;
 }
 
-.preto {
-  background-color:black;
-}
-
-.azul {
-  background-color: blue;
-}
-
-.rosa {
-  background-color: pink;
-}
-
-.laranja {
-  background-color: orange;
-}
-
 #pixel-board {
   border: 1px solid red;
   padding-bottom: 0px;

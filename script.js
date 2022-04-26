@@ -1,6 +1,7 @@
 window.onload = function (){
   let corPreta = document.querySelector('.color')
   corPreta.className = 'color preto selected'
+  localStorage.setItem('cor', 'black')
 }
 
 
@@ -24,6 +25,7 @@ function geradorQuadroPixel (linhas, colunas, tamanho) {
         pixels.style.width = tamanho + 'px'
         pixels.style.height = tamanho + 'px'
         pixels.style.backgroundColor = 'white'
+        pixels.addEventListener("click", colorPixel)
         colums.appendChild(pixels)
     }
     divPai.style.width =  ((tamanho + 2)  * linhas) + 'px'
@@ -36,8 +38,20 @@ function selecao(pix) {
     for (let i = 0; i < pixelColor.length; i += 1) {
         if (pixelColor[i].className.includes('selected') == true) {
             pixelColor[i].className = pixelColor[i].className.replace(' selected', '')
-            pix.target.className = pix.target.className + ' selected' 
+            pix.target.className = pix.target.className + ' selected'
+            localStorage.setItem('cor', pix.target.style.backgroundColor)
         }  
     }
+}
+
+function colorPixel(event) {
+  let pixel = event.target;
+  console.log(pixel.style.backgroundColor === 'white')
+  if (pixel.style.backgroundColor === 'white') {
+    pixel.style.backgroundColor = localStorage.getItem('cor')
+  }else {
+    pixel.style.backgroundColor = 'white'
+  }
+  
 }
 
