@@ -1,7 +1,8 @@
+
 .pixel {
   border: 1px solid black;
-  width: 48px;
-  height: 48px; 
+  width: 38px;
+  height: 38px; 
   font-size: 0px;
 }
 
@@ -30,11 +31,13 @@
 }
 
 #pixel-board {
+  border: 1px solid red;
   padding-bottom: 0px;
   font-size: 0px;
 }
 
 .pixel-coluna {
-    display: inline-block;
+  display: inline-block;
 }
+
 
