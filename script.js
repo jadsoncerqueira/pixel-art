@@ -1,13 +1,24 @@
-window.onload = function inicial(){
-  let corPreta = document.querySelector('.color');
+window.onload = function inicial() {
+  const corPreta = document.querySelector('.color');
   corPreta.className = 'color preto selected';
-  localStorage.setItem('cor', 'black');
+  localStorage.setItem('cor', 'black')
 }
 
+function selecao(pix) {
+  const pixelColor = document.getElementsByClassName('color');
+  for (let i = 0; i < pixelColor.length; i += 1) {
+    if (pixelColor[i].className.includes('selected')) {
+      const elemento = pix.target;
+      pixelColor[i].className = pixelColor[i].className.replace(' selected', '');
+      let classeElemento = elemento.className
+      classeElemento = `${classeElemento} selected`;
+      localStorage.setItem('cor', elemento.style.backgroundColor);
+    }
+  }
+}
 
-geradorQuadroPixel(5,5,40)
-let elementoSelecionado = document.getElementsByClassName('color')
-for(let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
+const elementoSelecionado = document.getElementsByClassName('color');
+for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
   elementoSelecionado[i3].addEventListener('click', selecao);
 }
 
@@ -22,31 +33,22 @@ function colorPixel(event) {
 
 function geradorQuadroPixel(linhas, colunas, tamanho) {
   for (let i = 0; i < colunas; i += 1) {
-    let divPai = document.querySelector('#pixel-board');
+    const divPai = document.querySelector('#pixel-board');
     const colums = document.createElement('div');
     colums.className = 'pixel-coluna';
     for (let i2 = 0; i2 < linhas; i2 += 1) {
       const pixels = document.createElement('div');
       pixels.className = 'pixel';
-      pixels.style.width = String(tamanho + 'px');
-      pixels.style.height = String(tamanho + 'px');
+      pixels.style.width = `${tamanho}px`;
+      pixels.style.height = `${tamanho}px`;
       pixels.style.backgroundColor = 'white';
-      pixels.addEventListener("click", colorPixel);
+      pixels.addEventListener('click', colorPixel);
       colums.appendChild(pixels);
     }
-    divPai.style.width = String(((tamanho + 2) * linhas) + 'px');
+    let gradeTamanho = (tamanho + 2) * linhas
+    divPai.style.width = `${gradeTamanho}px`;
     divPai.appendChild(colums);
   }
 }
 
-function selecao(pix) {
-  const pixelColor = document.getElementsByClassName('color');
-  for (let i = 0; i < pixelColor.length; i += 1) {
-    if (pixelColor[i].className.includes('selected')) {
-      const elemento = pix.target;
-      pixelColor[i].className = pixelColor[i].className.replace(' selected', '');
-      elemento.className = String(elemento.className + ' selected');
-      localStorage.setItem('cor', elemento.style.backgroundColor);
-    }
-  }
-}
+geradorQuadroPixel(5, 5, 40);
