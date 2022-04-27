@@ -4,22 +4,21 @@ window.onload = function inicial() {
   localStorage.setItem('cor', 'black');
 };
 
+const elementoSelecionado = document.getElementsByClassName('color');
+for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
+  elementoSelecionado[i3].addEventListener('click', selecao);
+}
+
 function selecao(pix) {
   const pixelColor = document.getElementsByClassName('color');
   for (let i = 0; i < pixelColor.length; i += 1) {
     if (pixelColor[i].className.includes('selected')) {
       const elemento = pix.target;
-      pixelColor[i].className = pixelColor[i].className.replace(' selected', '');
-      let classeElemento = elemento.className;
-      classeElemento = `${classeElemento} selected`;
+      pixelColor[i].className = pixelColor[i].className.replace('selected', '');
+      elemento.className = `${elemento.className} selected`;
       localStorage.setItem('cor', elemento.style.backgroundColor);
     }
   }
-}
-
-const elementoSelecionado = document.getElementsByClassName('color');
-for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
-  elementoSelecionado[i3].addEventListener('click', selecao);
 }
 
 function colorPixel(event) {
@@ -48,6 +47,14 @@ function geradorQuadroPixel(linhas, colunas, tamanho) {
     const gradeTamanho = (tamanho + 2) * linhas;
     divPai.style.width = `${gradeTamanho}px`;
     divPai.appendChild(colums);
+  }
+}
+const botaoClear = document.querySelector('#clear-board');
+botaoClear.addEventListener('click', limpaQuadro)
+function limpaQuadro() {
+  let divPixel = document.getElementsByClassName('pixel');
+  for (let i = 0; i < divPixel.length; i += 1) {
+    divPixel[i].style.backgroundColor = 'white'
   }
 }
 
