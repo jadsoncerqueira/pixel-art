@@ -1,8 +1,8 @@
 window.onload = function inicial() {
   const corPreta = document.querySelector('.color');
   corPreta.className = 'color preto selected';
-  localStorage.setItem('cor', 'black')
-}
+  localStorage.setItem('cor', 'black');
+};
 
 function selecao(pix) {
   const pixelColor = document.getElementsByClassName('color');
@@ -10,7 +10,7 @@ function selecao(pix) {
     if (pixelColor[i].className.includes('selected')) {
       const elemento = pix.target;
       pixelColor[i].className = pixelColor[i].className.replace(' selected', '');
-      let classeElemento = elemento.className
+      let classeElemento = elemento.className;
       classeElemento = `${classeElemento} selected`;
       localStorage.setItem('cor', elemento.style.backgroundColor);
     }
@@ -45,7 +45,7 @@ function geradorQuadroPixel(linhas, colunas, tamanho) {
       pixels.addEventListener('click', colorPixel);
       colums.appendChild(pixels);
     }
-    let gradeTamanho = (tamanho + 2) * linhas
+    const gradeTamanho = (tamanho + 2) * linhas;
     divPai.style.width = `${gradeTamanho}px`;
     divPai.appendChild(colums);
   }
