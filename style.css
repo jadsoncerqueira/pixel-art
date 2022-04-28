@@ -1,10 +1,10 @@
 body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
 .pixel {
   border: 1px solid black;
-  width: 38px;
-  height: 38px;
+  display: inline-block;
 }
 
 .color {
@@ -12,6 +12,7 @@ body {
   width: 48px;
   height: 48px;
   display: inline-block;
+  border-radius: 100%;
 }
 
 #pixel-board {
@@ -22,24 +23,23 @@ body {
   top: 10px;
 }
 
-.pixel-coluna {
-  display: inline-block;
-}
-
 #board-size {
   width: 80px;
   height: 25px;
   margin-bottom: 20px;
   padding: 0%;
 }
+
 #generate-board, #clear-board {
   width: 50px;
   height: 28px;
   padding: 0%;
 }
+
  #board-size, #color-palette, h1 {
    text-align: center;
  }
+
  main {
    text-align: center;
    width: 70%;

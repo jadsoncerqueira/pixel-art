@@ -35,14 +35,13 @@ function geradorQuadroPixel(linhas, colunas, tamanho = 40) {
   px1.innerHTML = ''
   for (let i = 0; i < colunas; i += 1) {
   const divPai = document.querySelector('#pixel-board');
-  const colums = document.createElement('div');
-  colums.className = 'pixel-coluna';
+  const colums = document.createElement('div');;
   for (let i2 = 0; i2 < linhas; i2 += 1) {
     const pixels = document.createElement('div');
     pixels.className = 'pixel';
     pixels.style.width = `${tamanho}px`;
     pixels.style.height = `${tamanho}px`;
-    pixels.style.backgroundColor = 'white';
+    pixels.style.backgroundColor = 'rgb(255, 255, 255)';
     pixels.addEventListener('click', colorPixel);
     colums.appendChild(pixels);
   }
@@ -59,7 +58,7 @@ botaoClear.addEventListener('click', limpaQuadro)
 function limpaQuadro() {
   let divPixel = document.getElementsByClassName('pixel');
   for (let i = 0; i < divPixel.length; i += 1) {
-    divPixel[i].style.backgroundColor = 'white'
+    divPixel[i].style.backgroundColor = 'rgb(255, 255, 255)'
   }
 }
 
@@ -76,14 +75,15 @@ function geraQuadro() {
 geradorQuadroPixel(entrada, entrada);
 }
 
-// function geradorCor() {
-//   let paleta = document.getElementsByClassName('color')
-//   const letrasNumeros = '0123456789ABCDEF';
-//   let color = '#';
-  
-//   for (let i = 0; i < paleta.length; i += 1) {
-//     color += letrasNumeros[Math.floor(Math.random() * 16)];
-//     paleta[i].style.backgroundColor = color
-//   }
-// }
-
+function geradorHexadecimal() {
+  const paleta = document.getElementsByClassName('color');
+  for (let index = 1; index < paleta.length; index += 1) {
+    let codigoHexa = '#';
+    const base = '0123456789ABCDEF';
+    for (let i = 0; i < 6; i += 1) {
+      codigoHexa +=  base.charAt(Math.floor(Math.random() * base.length));
+    }
+    paleta[index].style.backgroundColor = codigoHexa;
+  }
+}
+geradorHexadecimal()
