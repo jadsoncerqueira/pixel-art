@@ -65,9 +65,13 @@ function limpaQuadro() {
 
 
 function geraQuadro() {
-  let largura = document.querySelector('#board-size').value
-  if (largura === '') {
+  let entrada = document.querySelector('#board-size').value
+  if (entrada === '') {
     alert('Board inválido!')
+  } else if (entrada > 50) {
+    entrada = 50
+  } else if (entrada < 5) {
+    entrada = 5
   }
-  geradorQuadroPixel(largura, largura);
+  geradorQuadroPixel(entrada, entrada);
 }
