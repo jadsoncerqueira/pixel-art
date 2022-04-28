@@ -30,25 +30,30 @@ function colorPixel(event) {
   }
 }
 
-function geradorQuadroPixel(linhas, colunas, tamanho) {
+function geradorQuadroPixel(linhas, colunas, tamanho = 40) {
+  const px1 = document.getElementById('pixel-board');
+  px1.innerHTML = ''
   for (let i = 0; i < colunas; i += 1) {
-    const divPai = document.querySelector('#pixel-board');
-    const colums = document.createElement('div');
-    colums.className = 'pixel-coluna';
-    for (let i2 = 0; i2 < linhas; i2 += 1) {
-      const pixels = document.createElement('div');
-      pixels.className = 'pixel';
-      pixels.style.width = `${tamanho}px`;
-      pixels.style.height = `${tamanho}px`;
-      pixels.style.backgroundColor = 'white';
-      pixels.addEventListener('click', colorPixel);
-      colums.appendChild(pixels);
-    }
-    const gradeTamanho = (tamanho + 2) * linhas;
-    divPai.style.width = `${gradeTamanho}px`;
-    divPai.appendChild(colums);
+  const divPai = document.querySelector('#pixel-board');
+  const colums = document.createElement('div');
+  colums.className = 'pixel-coluna';
+  for (let i2 = 0; i2 < linhas; i2 += 1) {
+    const pixels = document.createElement('div');
+    pixels.className = 'pixel';
+    pixels.style.width = `${tamanho}px`;
+    pixels.style.height = `${tamanho}px`;
+    pixels.style.backgroundColor = 'white';
+    pixels.addEventListener('click', colorPixel);
+    colums.appendChild(pixels);
   }
+  divPai.style.width = `${(tamanho + 2) * colunas }px`;
+  divPai.appendChild(colums);
+  }
+  
 }
+const botaoGerar = document.querySelector('#generate-board');
+botaoGerar.addEventListener('click', geraQuadro)
+
 const botaoClear = document.querySelector('#clear-board');
 botaoClear.addEventListener('click', limpaQuadro)
 function limpaQuadro() {
@@ -58,4 +63,11 @@ function limpaQuadro() {
   }
 }
 
-geradorQuadroPixel(5, 5, 40);
+
+function geraQuadro() {
+  let largura = document.querySelector('#board-size').value
+  if (largura === '') {
+    alert('Board inválido!')
+  }
+  geradorQuadroPixel(largura, largura);
+}
