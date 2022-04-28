@@ -4,6 +4,8 @@ window.onload = function inicial() {
   localStorage.setItem('cor', 'black');
 };
 
+// geradorCor();
+
 const elementoSelecionado = document.getElementsByClassName('color');
 for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
   elementoSelecionado[i3].addEventListener('click', selecao);
@@ -73,5 +75,17 @@ function geraQuadro() {
   } else if (entrada < 5) {
     entrada = 5
   }
-  geradorQuadroPixel(entrada, entrada);
+geradorQuadroPixel(entrada, entrada);
 }
+
+// function geradorCor() {
+//   let paleta = document.getElementsByClassName('color')
+//   const letrasNumeros = '0123456789ABCDEF';
+//   let color = '#';
+  
+//   for (let i = 0; i < paleta.length; i += 1) {
+//     color += letrasNumeros[Math.floor(Math.random() * 16)];
+//     paleta[i].style.backgroundColor = color
+//   }
+// }
+
