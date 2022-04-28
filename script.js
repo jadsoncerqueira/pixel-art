@@ -5,6 +5,7 @@ window.onload = function inicial() {
 };
 
 // geradorCor();
+geradorQuadroPixel(5, 5)
 
 const elementoSelecionado = document.getElementsByClassName('color');
 for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
@@ -25,11 +26,8 @@ function selecao(pix) {
 
 function colorPixel(event) {
   const pixel = event.target;
-  if (pixel.style.backgroundColor === 'white') {
-    pixel.style.backgroundColor = localStorage.getItem('cor');
-  } else {
-    pixel.style.backgroundColor = 'white';
-  }
+  pixel.style.backgroundColor = localStorage.getItem('cor');
+  
 }
 
 function geradorQuadroPixel(linhas, colunas, tamanho = 40) {
