@@ -28,7 +28,7 @@ function colorPixel(event) {
 
 function geradorQuadroPixel(tamanho) {
   const divPai = document.querySelector('#pixel-board');
-  divPai.style.setProperty('--carro', tamanho);
+  divPai.style.setProperty('--tamanho', tamanho);
   divPai.innerHTML = '';
   for (let i = 0; i < tamanho * tamanho; i += 1) {
     const pixels = document.createElement('div');
