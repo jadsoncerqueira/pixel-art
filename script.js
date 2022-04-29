@@ -8,19 +8,20 @@ window.onload = function inicial() {
 };
 
 function selecao(pix) {
+  const evento = pix.target
   const pixelColor = document.getElementsByClassName('color');
   for (let i = 0; i < pixelColor.length; i += 1) {
     if (pixelColor[i].className.includes('selected')) {
       pixelColor[i].className = pixelColor[i].className.replace('selected', '');
-      pix.target.className = `${pix.target.className} selected`;
-      cor = pix.target.style.backgroundColor;
+      evento.className = `${pix.target.className} selected`;
+      cor = evento.style.backgroundColor;
     }
   }
 }
 
-document.querySelector('#head').addEventListener('input', (e => {
+document.querySelector('#head').addEventListener('input', (e) => {
   cor = e.target.value;
-}));
+});
 
 const elementoSelecionado = document.getElementsByClassName('color');
 for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
@@ -42,7 +43,7 @@ function corHover(event) {
 
 function corSai(event) {
   if (statusClick === 0) {
-    let acao = event.target
+    const acao = event.target;
     acao.style.backgroundColor = corOriginal;
   }
 }
