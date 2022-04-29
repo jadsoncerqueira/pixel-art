@@ -76,7 +76,7 @@ main {
   background-color: rgba(22, 16, 59, 0.993);
 }
 
-input[type = color] {
+#head {
   appearance: none;
   cursor: pointer;
   position: relative;

@@ -13,14 +13,14 @@ function selecao(pix) {
     if (pixelColor[i].className.includes('selected')) {
       pixelColor[i].className = pixelColor[i].className.replace('selected', '');
       pix.target.className = `${pix.target.className} selected`;
-      if (pix.target === document.querySelector('#head')) {
-        cor = pix.target.value;
-      } else {
-        cor = pix.target.style.backgroundColor;
-      }
+      cor = pix.target.style.backgroundColor;
     }
   }
 }
+
+document.querySelector('#head').addEventListener('input', e => {
+  cor = e.target.value
+})
 
 const elementoSelecionado = document.getElementsByClassName('color');
 for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
