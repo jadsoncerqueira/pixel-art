@@ -39,7 +39,7 @@ function geradorQuadroPixel(tamanho) {
   }
 }
 
-geradorQuadroPixel(5)
+geradorQuadroPixel(5);
 function limpaQuadro() {
   const divPixel = document.getElementsByClassName('pixel');
   for (let i = 0; i < divPixel.length; i += 1) {
