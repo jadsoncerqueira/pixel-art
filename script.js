@@ -14,7 +14,11 @@ function selecao(pix) {
       const elemento = pix.target;
       pixelColor[i].className = pixelColor[i].className.replace('selected', '');
       elemento.className = `${elemento.className} selected`;
-      cor = elemento.style.backgroundColor;
+      if (elemento === document.querySelector('#head')){
+        cor = elemento.value;
+      } else {
+        cor = elemento.style.backgroundColor;
+      }
     }
   }
 }
@@ -86,7 +90,7 @@ botaoClear.addEventListener('click', limpaQuadro);
 
 function geradorHexadecimal() {
   const paleta = document.getElementsByClassName('color');
-  for (let index = 1; index < paleta.length; index += 1) {
+  for (let index = 1; index < paleta.length - 1; index += 1) {
     let codigoHexa = '#';
     const base = '0123456789ABCDEF';
     for (let i = 0; i < 6; i += 1) {
@@ -102,7 +106,14 @@ const botaoRemoveGrade = document.querySelector('#remove-grade');
 botaoRemoveGrade.addEventListener('click', removeGrade);
 function removeGrade() {
   const grade = document.getElementsByClassName('pixel');
-  for (let i = 0; i < grade.length; i += 1) {
-    grade[i].style.border = 'none';
+  if (grade[0].style.border === 'none') {
+    for (let i = 0; i < grade.length; i += 1) {
+      grade[i].style.border = '1px solid black';
+    }
+  } else {
+    for (let i = 0; i < grade.length; i += 1) {
+      grade[i].style.border = 'none';
+    }
   }
+  
 }
