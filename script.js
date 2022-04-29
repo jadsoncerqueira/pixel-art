@@ -18,9 +18,9 @@ function selecao(pix) {
   }
 }
 
-document.querySelector('#head').addEventListener('input', e => {
-  cor = e.target.value
-})
+document.querySelector('#head').addEventListener('input', (e => {
+  cor = e.target.value;
+}));
 
 const elementoSelecionado = document.getElementsByClassName('color');
 for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
@@ -42,7 +42,8 @@ function corHover(event) {
 
 function corSai(event) {
   if (statusClick === 0) {
-    const bg = event.target.style.backgroundColor = corOriginal;
+    let acao = event.target
+    acao.style.backgroundColor = corOriginal;
   }
 }
 
@@ -103,13 +104,13 @@ geradorHexadecimal();
 
 function removeGrade() {
   const grade = document.getElementsByClassName('pixel');
-    for (let i = 0; i < grade.length; i += 1) {
-      if (grade[i].style.border === 'none') {
-        grade[i].style.border = '1px solid black';
-      } else {
-        grade[i].style.border = 'none';
-      }
+  for (let i = 0; i < grade.length; i += 1) {
+    if (grade[i].style.border === 'none') {
+      grade[i].style.border = '1px solid black';
+    } else {
+      grade[i].style.border = 'none';
     }
+  }
 }
 
 const botaoRemoveGrade = document.querySelector('#remove-grade');
