@@ -1,9 +1,11 @@
+let cor = 'black';
+let statusClick = 0;
+let corOriginal = ''
+
 window.onload = function inicial() {
   const corPreta = document.querySelector('.color');
   corPreta.className = 'color preto selected';
-  localStorage.setItem('cor', 'black');
 };
-localStorage.setItem('statusClick', '0');
 
 function selecao(pix) {
   const pixelColor = document.getElementsByClassName('color');
@@ -12,7 +14,7 @@ function selecao(pix) {
       const elemento = pix.target;
       pixelColor[i].className = pixelColor[i].className.replace('selected', '');
       elemento.className = `${elemento.className} selected`;
-      localStorage.setItem('cor', elemento.style.backgroundColor);
+      cor = elemento.style.backgroundColor;
     }
   }
 }
@@ -24,20 +26,20 @@ for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
 
 function colorPixel(event) {
   const pixel = event.target;
-  pixel.style.backgroundColor = localStorage.getItem('cor');
-  localStorage.setItem('statusClick', '1')
+  pixel.style.backgroundColor = cor;
+  statusClick = 1
 }
 
 function corHover(event) {
   const pixel = event.target;
-  localStorage.setItem('corOriginal', pixel.style.backgroundColor);
-  pixel.style.backgroundColor = localStorage.getItem('cor');
-  localStorage.setItem('statusClick', '0')
+  corOriginal = pixel.style.backgroundColor;
+  pixel.style.backgroundColor = cor;
+  statusClick = 0
 }
 
 function corSai(event){
-  if (localStorage.getItem('statusClick') === '0') {
-    event.target.style.backgroundColor = localStorage.getItem('corOriginal');
+  if (statusClick === 0) {
+    event.target.style.backgroundColor = corOriginal;
   }
 }
 
