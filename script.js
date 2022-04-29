@@ -8,7 +8,7 @@ window.onload = function inicial() {
 };
 
 function selecao(pix) {
-  const evento = pix.target
+  const evento = pix.target;
   const pixelColor = document.getElementsByClassName('color');
   for (let i = 0; i < pixelColor.length; i += 1) {
     if (pixelColor[i].className.includes('selected')) {
