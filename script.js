@@ -39,8 +39,7 @@ function geradorQuadroPixel(tamanho) {
   }
 }
 
-geradorQuadroPixel(5);
-
+geradorQuadroPixel(5)
 function limpaQuadro() {
   const divPixel = document.getElementsByClassName('pixel');
   for (let i = 0; i < divPixel.length; i += 1) {
@@ -57,7 +56,7 @@ function geraQuadro() {
   } else if (entrada < 5) {
     entrada = 5;
   }
-  geradorQuadroPixel(entrada, entrada);
+  geradorQuadroPixel(entrada);
 }
 
 const botaoGerar = document.querySelector('#generate-board');

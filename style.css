@@ -1,5 +1,5 @@
 :root {
-  --carro: 5
+  --carro: 5;
 }
 
 body {
@@ -27,7 +27,7 @@ body {
   transform: translate(-50%);
   top: 10px;
   width: 210px;
-  height: 210px ;
+  height: 210px;
 }
 
 #board-size {
