@@ -1,6 +1,6 @@
 let cor = 'black';
 let statusClick = 0;
-let corOriginal = ''
+let corOriginal = '';
 
 window.onload = function inicial() {
   const corPreta = document.querySelector('.color');
@@ -11,13 +11,12 @@ function selecao(pix) {
   const pixelColor = document.getElementsByClassName('color');
   for (let i = 0; i < pixelColor.length; i += 1) {
     if (pixelColor[i].className.includes('selected')) {
-      const elemento = pix.target;
       pixelColor[i].className = pixelColor[i].className.replace('selected', '');
-      elemento.className = `${elemento.className} selected`;
-      if (elemento === document.querySelector('#head')){
-        cor = elemento.value;
+      pix.target.className = `${pix.target.className} selected`;
+      if (pix.target === document.querySelector('#head')) {
+        cor = pix.target.value;
       } else {
-        cor = elemento.style.backgroundColor;
+        cor = pix.target.style.backgroundColor;
       }
     }
   }
@@ -31,19 +30,19 @@ for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
 function colorPixel(event) {
   const pixel = event.target;
   pixel.style.backgroundColor = cor;
-  statusClick = 1
+  statusClick = 1;
 }
 
 function corHover(event) {
   const pixel = event.target;
   corOriginal = pixel.style.backgroundColor;
   pixel.style.backgroundColor = cor;
-  statusClick = 0
+  statusClick = 0;
 }
 
-function corSai(event){
+function corSai(event) {
   if (statusClick === 0) {
-    event.target.style.backgroundColor = corOriginal;
+    const bg = event.target.style.backgroundColor = corOriginal;
   }
 }
 
@@ -102,18 +101,16 @@ function geradorHexadecimal() {
 
 geradorHexadecimal();
 
-const botaoRemoveGrade = document.querySelector('#remove-grade');
-botaoRemoveGrade.addEventListener('click', removeGrade);
 function removeGrade() {
   const grade = document.getElementsByClassName('pixel');
-  if (grade[0].style.border === 'none') {
     for (let i = 0; i < grade.length; i += 1) {
-      grade[i].style.border = '1px solid black';
+      if (grade[i].style.border === 'none') {
+        grade[i].style.border = '1px solid black';
+      } else {
+        grade[i].style.border = 'none';
+      }
     }
-  } else {
-    for (let i = 0; i < grade.length; i += 1) {
-      grade[i].style.border = 'none';
-    }
-  }
-  
 }
+
+const botaoRemoveGrade = document.querySelector('#remove-grade');
+botaoRemoveGrade.addEventListener('click', removeGrade);

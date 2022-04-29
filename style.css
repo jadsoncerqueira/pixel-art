@@ -38,7 +38,7 @@ body {
   border-radius: 3px;
 }
 
-#generate-board , #clear-board, #remove-grade {
+#generate-board , #clear-board , #remove-grade {
   margin-top: 20px;
   padding: 10px;
   background-color: red;
@@ -53,7 +53,7 @@ body {
   text-align: center;
 }
 
-h1, label {
+h1 , label {
   color: white;
 }
 
@@ -76,9 +76,7 @@ main {
   background-color: rgba(22, 16, 59, 0.993);
 }
 
-#head {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+input[type = color] {
   appearance: none;
   cursor: pointer;
   position: relative;
@@ -87,5 +85,4 @@ main {
   padding: 0%;
   width: 50px;
   height: 30px;
-  
 }
