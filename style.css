@@ -1,10 +1,13 @@
+:root {
+  --carro: 5
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .pixel {
   border: 1px solid black;
-  display: inline-block;
 }
 
 .color {
@@ -16,11 +19,15 @@ body {
 }
 
 #pixel-board {
-  font-size: 0%;
+  display: grid;
+  grid-template-columns: repeat(var(--carro), 1fr);
+  grid-template-rows: repeat(var(--carro), 1fr);
   position: relative;
   left: 50%;
   transform: translate(-50%);
   top: 10px;
+  width: 210px;
+  height: 210px ;
 }
 
 #board-size {

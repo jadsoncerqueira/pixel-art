@@ -26,27 +26,20 @@ function colorPixel(event) {
   pixel.style.backgroundColor = localStorage.getItem('cor');
 }
 
-function geradorQuadroPixel(linhas, colunas, tamanho = 40) {
-  const px1 = document.getElementById('pixel-board');
-  px1.innerHTML = '';
-  for (let i = 0; i < colunas; i += 1) {
-    const divPai = document.querySelector('#pixel-board');
-    const colums = document.createElement('div');
-    for (let i2 = 0; i2 < linhas; i2 += 1) {
-      const pixels = document.createElement('div');
-      pixels.className = 'pixel';
-      pixels.style.width = `${tamanho}px`;
-      pixels.style.height = `${tamanho}px`;
-      pixels.style.backgroundColor = 'rgb(255, 255, 255)';
-      pixels.addEventListener('click', colorPixel);
-      colums.appendChild(pixels);
-    }
-    divPai.style.width = `${(tamanho + 2) * colunas}px`;
-    divPai.appendChild(colums);
+function geradorQuadroPixel(tamanho) {
+  const divPai = document.querySelector('#pixel-board');
+  divPai.style.setProperty('--carro', tamanho);
+  divPai.innerHTML = '';
+  for (let i = 0; i < tamanho * tamanho; i += 1) {
+    const pixels = document.createElement('div');
+    pixels.className = 'pixel';
+    pixels.style.backgroundColor = 'rgb(255, 255, 255)';
+    pixels.addEventListener('click', colorPixel);
+    divPai.appendChild(pixels);
   }
 }
 
-geradorQuadroPixel(5, 5);
+geradorQuadroPixel(5);
 
 function limpaQuadro() {
   const divPixel = document.getElementsByClassName('pixel');
