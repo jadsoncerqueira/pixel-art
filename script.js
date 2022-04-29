@@ -3,6 +3,7 @@ window.onload = function inicial() {
   corPreta.className = 'color preto selected';
   localStorage.setItem('cor', 'black');
 };
+localStorage.setItem('statusClick', '0');
 
 function selecao(pix) {
   const pixelColor = document.getElementsByClassName('color');
@@ -24,6 +25,20 @@ for (let i3 = 0; i3 < elementoSelecionado.length; i3 += 1) {
 function colorPixel(event) {
   const pixel = event.target;
   pixel.style.backgroundColor = localStorage.getItem('cor');
+  localStorage.setItem('statusClick', '1')
+}
+
+function corHover(event) {
+  const pixel = event.target;
+  localStorage.setItem('corOriginal', pixel.style.backgroundColor);
+  pixel.style.backgroundColor = localStorage.getItem('cor');
+  localStorage.setItem('statusClick', '0')
+}
+
+function corSai(event){
+  if (localStorage.getItem('statusClick') === '0') {
+    event.target.style.backgroundColor = localStorage.getItem('corOriginal');
+  }
 }
 
 function geradorQuadroPixel(tamanho) {
@@ -34,6 +49,8 @@ function geradorQuadroPixel(tamanho) {
     const pixels = document.createElement('div');
     pixels.className = 'pixel';
     pixels.style.backgroundColor = 'rgb(255, 255, 255)';
+    pixels.addEventListener('mouseover', corHover);
+    pixels.addEventListener('mouseout', corSai);
     pixels.addEventListener('click', colorPixel);
     divPai.appendChild(pixels);
   }
@@ -76,4 +93,14 @@ function geradorHexadecimal() {
     paleta[index].style.backgroundColor = codigoHexa;
   }
 }
+
 geradorHexadecimal();
+
+const botaoRemoveGrade = document.querySelector('#remove-grade');
+botaoRemoveGrade.addEventListener('click', removeGrade);
+function removeGrade() {
+  const grade = document.getElementsByClassName('pixel');
+  for (let i = 0; i < grade.length; i += 1) {
+    grade[i].style.border = 'none';
+  }
+}
